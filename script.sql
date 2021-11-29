@@ -106,7 +106,7 @@ BEGIN
 			protocolo = novo_protocolo,
 			sequencial = novo_sequencial
 		WHERE NEW.sequencial = sequencial;
-	
+		
 		RETURN NEW;
 	ELSE
 		RAISE NOTICE 'Esse protocolo já foi inserido.';
