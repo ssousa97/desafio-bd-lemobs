@@ -123,9 +123,47 @@ EXECUTE PROCEDURE serial_protocolo_insert();
 
 
 
-
-
-
+-- Function para a api de atualização do protocolo_mobile, os parametros são o protocolo mobile e o código sequencial.
+-- Se o código sequencial não estiver atualizado com os '0' a esquerda, a função irá corrigir.
+CREATE OR REPLACE FUNCTION protocolo_mobile_insert(protocolo_mobile_param text, sequencial_param text)
+RETURNS text AS $$
+DECLARE
+	found_protocolo_mobile		ProtocoloMobile%rowtype;
+	tam_sequencial				int;
+	tam_loop					int;
+BEGIN
+	SELECT protocolo_mobile 
+	FROM ProtocoloMobile
+	INTO found_protocolo_mobile
+	WHERE protocolo_mobile = protocolo_mobile_param;
+	
+	IF NOT FOUND THEN
+		INSERT INTO ProtocoloMobile(protocolo_mobile) VALUES(protocolo_mobile_param);
+		
+		-- corrigir sequencial
+		tam_sequencial = CHAR_LENGTH(sequencial_param);
+		IF tam_sequencial < 5 THEN
+			tam_loop = 5 - tam_sequencial;
+			LOOP
+				sequencial_param = CONCAT('0', sequencial_param);
+				tam_loop = tam_loop - 1;
+				IF tam_loop = 0 THEN
+					EXIT; 
+				END IF;
+			END LOOP;
+		END IF;
+		
+		UPDATE Solicitacao
+		SET
+			protocolo_mobile = protocolo_mobile_param
+		WHERE sequencial = sequencial_param;
+		RETURN 'Valor atualizado com sucesso!';
+	ELSE
+		RETURN 'Esse protocolo já foi inserido!';
+	END IF;
+	
+END;
+$$ LANGUAGE plpgsql; 
 
 
 
