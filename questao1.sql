@@ -35,7 +35,7 @@
 	sequencial,
 	protocolo_mobile
 ) VALUES (
-	'4', NOW()::timestamp, NOW()::timestamp, '1', '2' 
+	'4', NOW()::timestamp, NOW()::timestamp, '1', '5' 
 );*/
 
 /*INSERT INTO Solicitacao(
@@ -45,7 +45,17 @@
 	sequencial,
 	protocolo_mobile
 ) VALUES (
-	'4', NOW()::timestamp, NOW()::timestamp, '1', '2' 
+	'4', NOW()::timestamp, NOW()::timestamp, '1', '5' 
+);*/
+
+/*INSERT INTO Solicitacao(
+	protocolo, 
+	created_at,
+	data_prazo,
+	sequencial,
+	protocolo_mobile
+) VALUES (
+	'6', NOW()::timestamp, NOW()::timestamp, '13', '7' 
 );*/
 
 
