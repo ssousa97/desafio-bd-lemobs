@@ -18,6 +18,36 @@
 	'3', NOW()::timestamp, NOW()::timestamp, '1', '2' 
 );*/
 
+/*INSERT INTO Solicitacao(
+	protocolo, 
+	created_at,
+	data_prazo,
+	sequencial,
+	protocolo_mobile
+) VALUES (
+	'3', NOW()::timestamp, NOW()::timestamp, '1', '2' 
+);*/
+
+/*INSERT INTO Solicitacao(
+	protocolo, 
+	created_at,
+	data_prazo,
+	sequencial,
+	protocolo_mobile
+) VALUES (
+	'4', NOW()::timestamp, NOW()::timestamp, '1', '2' 
+);*/
+
+/*INSERT INTO Solicitacao(
+	protocolo, 
+	created_at,
+	data_prazo,
+	sequencial,
+	protocolo_mobile
+) VALUES (
+	'4', NOW()::timestamp, NOW()::timestamp, '1', '2' 
+);*/
+
 
 -- Remover duplicatas de protocolos e protocolo mobile, mantendo aqueles que tiverem a data de criação mais antiga.
 
