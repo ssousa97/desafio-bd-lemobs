@@ -16,3 +16,6 @@ Tive uma certa dificuldade em estabelecer a relação de vinculo com sendo únic
 
 Os scripts foram desenvolvidos considerando um banco pré existente com os dados num estado inválido como descrito na questão 1. 
 No entando, o arquivo questao1.sql possui INSERTS que podem ser usados como teste.
+Para rodar o docker:
+   docker-compose up -d
+  
